@@ -1,0 +1,11 @@
+---
+#For hostname j2 template
+hostname: pi6
+#For interface j2 template
+eth0_ip: 10.1.1.6
+loopback_ip: 192.168.253.131
+#For routing template
+Quagga_AS: 65001
+neighbor_as: 65000
+neighbor: 10.1.1.1 
+

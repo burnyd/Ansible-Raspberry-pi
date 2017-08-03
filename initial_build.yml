@@ -1,0 +1,37 @@
+---
+
+- name: Build Configuration Files
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files:
+    - vars/main.yml
+  vars_prompt:
+    - name: mount
+      prompt: Please enter the mount drive for example /mnt/drivename/root
+      private: no
+
+  tasks:
+    - name: Put the host name in for the raspberry PI that is attached
+      template: src=templates/hostname.j2 dest="{{ mount }}/etc/hostname"
+
+    - name: Create the connected IPv4 address Eth0 and Loopback addresses
+      template: src=templates/interfaces.j2 dest="{{ mount }}/etc/network/interfaces"
+
+    - name: Create a Quagga directory if it does not exist.
+      file:
+       path: /etc/quagga/
+       state: directory
+       mode: 0755
+
+    - name: Copy over the BGP Quagga configuration including BGP AS number and upstream neighbor address
+      template:      
+       src: templates/bgpd.conf
+       dest: "{{ mount }}/etc/quagga/bgpd.conf"
+     
+
+    - name: Copy over the Zebra file to enable zebra kernel routing and BGP
+      template:
+       src: templates/daemons.j2 
+       dest: "{{ mount }}/etc/quagga/daemons"
+        

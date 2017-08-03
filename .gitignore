@@ -1,0 +1,4 @@
+#ignore some files
+*.log
+*.pyc
+*.retry
