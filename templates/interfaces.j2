@@ -6,6 +6,8 @@ auto eth0
 iface eth0 inet static
   address {{ eth0_ip }}
   netmask 255.255.255.0
+  broadcast 10.1.1.255
+  gateway 10.1.1.1
 
 auto lo:5
 iface lo:5 inet static
