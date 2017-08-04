@@ -8,3 +8,5 @@ Step 1:
 3.) Run the ./flash hypriotOS && ansible-playbook Ansible-Raspberry-pi/initial_build.yml # To kick off the build.
 
 https://www.youtube.com/watch?v=8FNafYDGeOo&feature=youtu.be
+
+[![Alt text](https://img.youtube.com/vi/8FNafYDGeOo/0.jpg)](https://www.youtube.com/watch?v=8FNafYDGeOo)
