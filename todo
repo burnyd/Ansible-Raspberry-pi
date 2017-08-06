@@ -1,0 +1,2 @@
+#Remove host name file and recreate it
+#Remove /etc/resolv.conf file and recreate it with the right DNS server in place. 
